@@ -33,35 +33,42 @@ class TextDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            controller: controller,
-            autofocus: true,
-            style: TextStyle(
-                fontSize: fontSize, fontWeight: FontWeight.bold, color: color),
-            textAlign: TextAlign.center,
-            decoration: const InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 10),
-              border: InputBorder.none,
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: TextButton(
-                child: Text(
-                  textDelegate.done,
-                  style: const TextStyle(
-                    color: Colors.white,
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 80),
+        child: Material(
+          color: Colors.transparent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              TextField(
+                controller: controller,
+                autofocus: true,
+                style: TextStyle(
+                    fontSize: fontSize,
                     fontWeight: FontWeight.bold,
-                  ),
+                    color: color),
+                textAlign: TextAlign.center,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                  border: InputBorder.none,
                 ),
-                onPressed: onFinished),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24),
+                child: ElevatedButton(
+                    child: Text(
+                      textDelegate.done,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: onFinished),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
