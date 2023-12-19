@@ -41,7 +41,7 @@ class TextDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 80),
+        padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 30),
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -62,15 +62,10 @@ class TextDialog extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24),
-                child: ElevatedButton(
-                    child: Text(
-                      textDelegate.done,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    onPressed: onFinished),
+                child: FilledButton(
+                  child: Text(textDelegate.done),
+                  onPressed: onFinished,
+                ),
               ),
             ],
           ),
